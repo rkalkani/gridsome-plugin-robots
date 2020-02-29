@@ -1,0 +1,54 @@
+{
+  "name": "gridsome-plugin-robots",
+  "version": "0.1.0",
+  "files": [
+    "gridsome*.js*"
+  ],
+  "main": "src/gridsome.server.js",
+  "description": "Gridsome plugin that automatically creates robots.txt for your site",
+  "scripts": {
+    "clean": "rm -rf gridsome*.js",
+    "lint": "eslint --ext js,md ./ --cache",
+    "test": "jest --color",
+    "format": "prettier --write 'src/*.js' 'README.md'",
+    "build": "babel src --out-dir ./ --source-maps",
+    "watch": "babel src --out-dir ./ --source-maps --watch"
+  },
+  "homepage": "https://github.com/rkalkani/gridsome-plugin-robots",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rkalkani/gridsome-plugin-robots.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rkalkani/gridsome-plugin-robots/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "gridsome",
+    "gridsome-plugin"
+  ],
+  "dependencies": {
+    "@babel/runtime": "^7.8.4",
+    "generate-robotstxt": "^8.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.6",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-markdown": "^1.0.2",
+    "jest": "^25.1.0",
+    "memfs": "^3.1.1",
+    "prettier": "^1.19.1",
+    "semantic-release": "^17.0.4",
+    "travis-deploy-once": "^5.0.11"
+  },
+  "peerDependencies": {
+    "gridsome": ">0.6"
+  },
+  "jest": {
+    "collectCoverage": true
+  }
+}
