@@ -1,4 +1,4 @@
-# gridsome-plugin-robots-txt
+# gridsome-plugin-robots
 
 > Create `robots.txt` for your Gridsome site.
 
@@ -6,11 +6,11 @@
 
 ## Install
 
-`yarn add gridsome-plugin-robots-txt`
+`yarn add gridsome-plugin-robots`
 
 or
 
-`npm install --save gridsome-plugin-robots-txt`
+`npm install --save gridsome-plugin-robots`
 
 ## How To Use
 
@@ -19,7 +19,7 @@ or
 ```js
 module.exports = {
   siteUrl: process.env.SITE_URL || 'https://www.example.com',
-  plugins: ['gridsome-plugin-robots-txt']
+  plugins: ['gridsome-plugin-robots']
 };
 ```
 
@@ -41,7 +41,7 @@ This plugin uses [`generate-robotstxt`](https://github.com/itgalaxy/generate-rob
 module.exports = {
   plugins: [
     {
-      use: 'gridsome-plugin-robots-txt',
+      use: 'gridsome-plugin-robots',
       options: {
         host: 'https://www.example.com',
         sitemap: 'https://www.example.com/sitemap.xml',
@@ -61,7 +61,7 @@ module.exports = {
 module.exports = {
   plugins: [
     {
-      resolve: 'gridsome-plugin-robots-txt',
+      resolve: 'gridsome-plugin-robots',
       options: {
         host: 'https://www.example.com',
         sitemap: 'https://www.example.com/sitemap.xml',
@@ -89,7 +89,7 @@ You can resolve the `env` key by using `resolveEnv` function:
 module.exports = {
   plugins: [
     {
-      resolve: 'gridsome-plugin-robots-txt',
+      resolve: 'gridsome-plugin-robots',
       options: {
         host: 'https://www.example.com',
         sitemap: 'https://www.example.com/sitemap.xml',
@@ -128,7 +128,7 @@ module.exports = {
   siteUrl,
   plugins: [
     {
-      resolve: 'gridsome-plugin-robots-txt',
+      resolve: 'gridsome-plugin-robots',
       options: {
         resolveEnv: () => NETLIFY_ENV,
         env: {

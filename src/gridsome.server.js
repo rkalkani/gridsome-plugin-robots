@@ -3,8 +3,11 @@ import robotsTxt from 'generate-robotstxt';
 import path from 'path';
 import url from 'url';
 
-const publicPath = './public';
 const defaultEnv = 'development';
+
+const defaultOptions = {
+  output: '/robots.txt',
+};
 
 function writeFile(file, data) {
   return new Promise((resolve, reject) => {
@@ -19,7 +22,7 @@ function writeFile(file, data) {
 }
 
 const getOptions = pluginOptions => {
-  const options = {...pluginOptions};
+  const options = {...defaultOptions, ...pluginOptions};
 
   delete options.plugins;
 
@@ -33,11 +36,18 @@ const getOptions = pluginOptions => {
   return {...options, ...envOptions};
 };
 
+/**
+ * Gridsome plugin
+ * @param {*} api The gridsome server api
+ * @param {*} options The plugin options without merging default options
+ */
 function RobotsPlugin(api, options) {
-  api.afterBuild(async ({queue, config}) => {
-    console.log('options', options);
-    console.log('config', config);
-    console.log('queue', queue);
+
+  /**
+   * The after build hook with gridsome config and queue??
+   * config.{pathPrefix,publicPath,staticDir,outDir,assetsDir,imagesDir,filesDir,dataDir,appPath}
+   */
+  api.afterBuild(async ({config}) => {
 
     const userOptions = getOptions(options);
 
@@ -57,14 +67,12 @@ function RobotsPlugin(api, options) {
       host,
       configFile,
     });
-    const filename = path.join(publicPath, output);
+    const filename = path.join(config.outDir, output);
 
     return writeFile(path.resolve(filename), content);
   });
 }
 
-RobotsPlugin.defaultOptions = {
-  output: '/robots.txt',
-};
+RobotsPlugin.defaultOptions = defaultOptions;
 
 module.exports = RobotsPlugin;
