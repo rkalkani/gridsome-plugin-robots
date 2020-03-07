@@ -2,17 +2,18 @@
   "name": "gridsome-plugin-robots",
   "version": "0.1.0",
   "files": [
-    "gridsome*.js*"
+    "dist",
+    "README.md"
   ],
-  "main": "src/gridsome.server.js",
+  "main": "dist/gridsome.server.js",
   "description": "Gridsome plugin that automatically creates robots.txt for your site",
   "scripts": {
     "clean": "rm -rf gridsome*.js",
     "lint": "eslint --ext js,md ./ --cache",
     "test": "jest --color",
     "format": "prettier --write 'src/*.js' 'README.md'",
-    "build": "babel src --out-dir ./ --source-maps",
-    "watch": "babel src --out-dir ./ --source-maps --watch"
+    "build": "babel src --out-dir ./dist --source-maps",
+    "watch": "babel src --out-dir ./dist --source-maps --watch"
   },
   "homepage": "https://github.com/rkalkani/gridsome-plugin-robots",
   "repository": {
